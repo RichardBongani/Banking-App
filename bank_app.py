@@ -1,3 +1,4 @@
+from os import access
 import random as r
 
 #User Class Here: 
@@ -43,22 +44,59 @@ class BankAccount(User):
         BankAccount.acc_numb = BankAccount.acc_numb + r.randrange(999999999999)
     
     def show_details(self):
-        print("YOUR BANK DETAILS: \n")
-        print(f'Account Number Is: {self.acc_numb}\nBranch:{self.city}\nAccount Type:{self.account_type}\nCurrent Balance is R{self.acc_balance}\nBranch Code:{self.branch_code}')
-        
+        print('YOUR BANK DETAILS: \n')
+        print(f'Account Number Is: {self.acc_numb}\nBranch:{self.city}\nAccount Type:{self.account_type}\nCurrent Balance is R{self.acc_balance}\nBranch Code:{self.branch_code}')        
+
+#Method for doing bank deposits:       
     def deposit(self):
-        dep_amount = int(input("Enter Deposit Amount: "))
+        dep_amount = int(input('Enter Deposit Amount: '))
         if dep_amount > 0:
             self.acc_balance = self.acc_balance + dep_amount
-            print(f"Successfully Deposited, Current Balance: R{self.acc_balance}")
+            print(f'Successfully Deposited, Current Balance: R{self.acc_balance}')
         else:
-            print("Invalid Amount, Try Again")
+            print('Invalid Amount, Try Again')
+
+#Method for withdrawing money:
+    def withdraw(self):
+        min_withdrawal = 10
+        with_amount = int(input('Enter Withdrawal Amount: '))
+        if with_amount <= self.acc_balance and with_amount > 10:
+            self.acc_balance = self.acc_balance - with_amount
+            print(f'Successfull Withdrawal, Current Balance: {self.acc_balance}')
+        else:
+            print('Invalid Amount, Try again') 
+
+#Method is for making a payment:
+    def payment(self,other):
+        min_payment = 50
+        payment_amount = int(input('Enter Payment Amount: '))
+        if payment_amount > min_payment and payment_amount <= self.acc_balance:
+            self.acc_balance = self.acc_balance - payment_amount
+            other.acc_balance = other.acc_balance + payment_amount
+            print(f'Payment Sent: -R{payment_amount}\t Current Balance: R{self.acc_balance}\n')
+            #Displays money that was sent
+            print('MONEY IN & BALANCES: ')
+            print(f'You have received: +R{payment_amount}\nNew Balance: R{other.acc_balance}')
+        else:
+            print('Invalid Amount, Try again')
             
+#Customer Payment balances"
+    # def customer_pay_details(self):
+    #     print('MONEY IN AND BALANCE: \n')
+    #     print(f'You received: R{payment_amount}')
+        
 #Creating an Object
 if __name__ == '__main__':
     
-    customer1 = BankAccount(name ='',age= '',gender = '',tel_num='0681783394',address='110 Pine Ave Centurion',city='',account_type='',branch_code=225005, initial_deposit= 0.00, pin= 1988)
-    customer1.account_holder()
-    print(customer1.show_details())
-    customer1.deposit()
+    customer1 = BankAccount(name ='',age= '',gender = '',tel_num='',address='',city='',account_type='',branch_code=225005, initial_deposit= 5000.00, pin= 1988)
+    customer2 = BankAccount(name ='',age= '',gender = '',tel_num='',address='',city='',account_type='',branch_code=225005, initial_deposit= 500.00, pin= 1988)
+
+    # customer1.account_holder()
+    # print(customer1.show_details())
+    # customer1.deposit()
+    # customer1.withdraw()
+    # customer1.payment()
+    customer1.payment(customer2)
+    # customer2.payment(customer1)
+    
     
