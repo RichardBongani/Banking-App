@@ -4,15 +4,13 @@ import random as r
 class User():
     #Constructor
     print("Welcome to King Bank (PTY)Ltd\n")
-    def __init__(self,name,age,gender,tel_num,address,city,account_type,branch_code):
+    def __init__(self,name,age,gender,tel_num,address,city):
         self.name = name
         self.age = age
         self.gender = gender
         self.tel_num = tel_num
         self.address = address
         self.city = city
-        self.account_type = account_type
-        self.branch_code = branch_code
         
     #Bank Registration Here:
     def account_holder(self):
@@ -36,11 +34,12 @@ class BankAccount(User):
     acc_numb = 0
     
     def __init__(self,name,age,gender,tel_num,address,city,account_type,branch_code,initial_deposit,pin):
-        super().__init__(name,age,gender,tel_num,address,city,account_type,branch_code)
+        super().__init__(name,age,gender,tel_num,address,city)
         self.acc_balance = initial_deposit
+        self.account_type = account_type
+        self.branch_code = branch_code
         self.acc_num = BankAccount.acc_numb
         self.pin = pin
-        
         BankAccount.acc_numb = BankAccount.acc_numb + r.randrange(999999999999)
     
     def show_details(self):
