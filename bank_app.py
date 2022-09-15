@@ -17,6 +17,21 @@ class BankAccount(User):
     
     def __int__(self,name,age,gender,tel_num,address,initial_depo,pin):
         super().__init__(name,age,gender,tel_num,address)
-        self.initial_depo = initial_depo
+        self.acc_balance = initial_depo
+        self.acc_num = BankAccount.acc_numb
         self.pin = pin
         
+        
+        BankAccount.acc_numb = BankAccount.acc_numb + 1
+    
+    def show_details(self):
+        print(f"Hi, {self.name}, with Account Number: {self.acc_numb} Your Current Balance is {self.acc_balance}")
+        
+    def deposit(self):
+        dep_amount = int(input("Enter Deposit Amount"))
+        if dep_amount > 0:
+            self.acc_balance = self.acc_balance + dep_amount
+            print(f"Successfully Deposited, Current Balance: R{self.acc_balance}")
+        else:
+            print("Invalid Amount, Try Again")
+            
