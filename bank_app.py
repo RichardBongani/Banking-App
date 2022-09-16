@@ -4,7 +4,7 @@ import random as r
 #User Class Here: 
 class User():
     #Constructor
-    print("Welcome to King Bank (PTY)Ltd\n")
+    print("WELCOME TO KING BANK (PTY)Ltd\n")
     def __init__(self,name,age,gender,tel_num,address,city):
         self.name = name
         self.age = age
@@ -69,6 +69,7 @@ class BankAccount(User):
 #Method is for making a payment:
     def payment(self,other):
         min_payment = 50
+        # pay = input('Press 1 to pay cust1 or 2 to pay cust2')
         payment_amount = int(input('Enter Payment Amount: '))
         if payment_amount > min_payment and payment_amount <= self.acc_balance:
             self.acc_balance = self.acc_balance - payment_amount
@@ -80,23 +81,37 @@ class BankAccount(User):
         else:
             print('Invalid Amount, Try again')
             
-#Customer Payment balances"
-    # def customer_pay_details(self):
-    #     print('MONEY IN AND BALANCE: \n')
-    #     print(f'You received: R{payment_amount}')
+#Who are you paying:
+    
         
 #Creating an Object
 if __name__ == '__main__':
     
     customer1 = BankAccount(name ='',age= '',gender = '',tel_num='',address='',city='',account_type='',branch_code=225005, initial_deposit= 5000.00, pin= 1988)
     customer2 = BankAccount(name ='',age= '',gender = '',tel_num='',address='',city='',account_type='',branch_code=225005, initial_deposit= 500.00, pin= 1988)
-
+    
+    while True:
+        
+        choose_input = int(input('How can we help you?\n\nPick 1 to view balance\nPress 2 to deposit\nPress 3 to Withdraw\nPress 4 to make Payment: '))
+        
+        if choose_input == 1:
+            customer1.acc_balance()
+        elif choose_input == 2:
+            customer1.deposit()
+        elif choose_input == 3:
+            customer1.withdraw()
+        elif choose_input == 4:
+            customer1.payment(customer2)
+           
+        else:
+            print('Invalid, try again')
+   
     # customer1.account_holder()
     # print(customer1.show_details())
     # customer1.deposit()
     # customer1.withdraw()
     # customer1.payment()
-    customer1.payment(customer2)
+    # customer1.payment(customer2)
     # customer2.payment(customer1)
     
     
