@@ -1,0 +1,25 @@
+{% extends 'users/base.html' %}
+{%load crispy_forms_tags %}
+{% load static %}
+
+
+    {% block content %}
+    <body id="home-bg" style="background-color: black;">
+       <div class="container" style="margin-top: 30px;">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border_button mb-4" style="color: white;" >Start Banking Now</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group" id="signup-button">
+                    <button class="btn">Sign Up</button>
+                </div>
+                <div class="form-group">
+                    <small class="text-muted ml-3">Already Have An Account? <a href="">Sign in</a></small>
+                </div>
+            </form>
+
+       </div>
+    </body>
+    {% endblock content %}

@@ -1,0 +1,41 @@
+h1,h2,h3,h4,h4,h5 {
+    font-family: "Londrina Outline";
+    text-shadow: 3px 3px 3px #ababab;
+}
+
+p{
+    font-family: 'GFS Neohellenic', sans-serif;
+}
+
+/* CSS For the base page concerning the Navogation */
+.navbar a img {
+    height:50px;
+    width: 50px;
+}
+
+/* CSS for the Home Page */
+#home-bg {
+    background: #a1c4fd;
+    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+    background-size: cover;
+    height: 650px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.welcome-cont {
+    position: relative;
+    top:100px;
+}
+
+/* CSS For the Resgitration Page */
+.border-button{
+    border: 2px solid white;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}

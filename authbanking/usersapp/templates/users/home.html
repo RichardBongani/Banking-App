@@ -1,1 +1,25 @@
 {% extends 'users/base.html' %}
+{% load static %}
+
+{% block content %}
+<link href="{% static 'users/css/main.css' %}" rel="stylesheet" type="text/css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="text-white">
+  <div class="container align-middle text-center">
+    <div class=" welcome-cont">
+      <h1 class="align-middle welcome-cont">RULE OVER YOUR FINANCES</h1>
+      <p class="align-middle text-center welcome-cont">Welcome to King Bank, A bank that gives you power over your hard erned money</p>
+      <button type="button" class="btn btn-warning welcome-cont"><a class="text-white"><b>START BANKING</b></a></button>
+    </div>
+  </div>
+</body>
+</html>
+ 
+{% endblock content %}
